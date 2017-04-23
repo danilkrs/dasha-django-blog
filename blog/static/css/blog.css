@@ -13,3 +13,21 @@ p{
     background-repeat: no-repeat;
     background-size: auto 23px;"
 }
+.post-share{
+	text-align: center;
+}
+.social-share-block{
+	display: inline-block;
+	background: #efefef !important;
+	padding: 10px;
+	width: 40px;
+}
+.social-share-block i{
+	font-size: 1.8vw;
+}
+.social-share-block a{
+	color: #9FA5AD !important;
+}
+.social-share-block:hover a{
+	color: #c9a96e !important;
+}

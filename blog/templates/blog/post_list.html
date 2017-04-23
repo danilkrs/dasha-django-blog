@@ -8,15 +8,21 @@
 	            <article class="post">
 	               <div class="entry-header cf">
 	                  <h1><a href="{% url 'post_detail' pk=post.pk %}" title="">{{ post.title }}</a></h1>
-	               </div>
-	               <div class="post-content">
-	                  <p>{{ post.text }}</p>
-	               </div>
-	               <div class="post-footer">
-	               		<p><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ post.published_date }}</p>
-	               		<div class="post-end">
-	               		</div>
-	               </div>
+	                </div>
+	                {% if post.local_post_image %}
+						<div class="post-thumb" style="background: url({{post.local_post_image.url}}) no-repeat center; height: 200px;">
+		               	</div>
+		            {% endif %}
+					<div class="meta">
+					<p><small><i class="fa fa-clock-o"></i>&nbsp;{{ post.published_date }}&nbsp;/&nbsp;<i class="fa fa-comments"></i> 0 Comments</small></p>
+					</div>
+					<div class="post-content">
+					  	<p>{{ post.text }}</p>
+					</div>
+					<div class="post-footer">
+							<div class="post-end">
+							</div>
+					</div>
 	            </article>
 	        {% endfor %}
         {% endif %}

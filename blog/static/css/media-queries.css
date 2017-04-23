@@ -82,7 +82,9 @@
 
    /* mobile navigation
    -------------------------------------------------------------------- */
-
+   .social-share-block i{
+      font-size: 5vw;
+   }
    #nav-wrap {
       width: auto;
       margin: 0;
