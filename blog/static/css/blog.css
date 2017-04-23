@@ -31,3 +31,32 @@ p{
 .social-share-block:hover a{
 	color: #c9a96e !important;
 }
+.error-block {
+    z-index: 100;
+    position: relative;
+    top: -4px;
+    text-align: center;
+    margin: 0 auto !important;
+}
+.validation-error-triangle {
+	height: 7px !important;	
+    width: 0; 
+    height: 0; 
+    margin: 0 auto !important;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #c9a96e;
+}
+.validation-error{
+    margin: 0 auto !important;
+    background: #c9a96e;
+}
+.validation-error > p{
+    margin: 0 auto !important; 
+    padding: 2px;
+    color: #fff !important;
+    font-size: 14px;
+}
+.cf{
+	padding-bottom: 20px !important;
+}

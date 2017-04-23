@@ -984,13 +984,12 @@ ol.commentlist {
    float: right;
 }
 #comments form div {
-   margin: 12px 0 18px 0;
+   margin: 0;
 }
 #comments form input,
 #comments form textarea,
 #comments form select {
-   width: 58.33333%;
-   float: left;
+   width: 100%;
 }
 #comments form .message label {
    display: none;

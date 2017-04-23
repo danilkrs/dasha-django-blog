@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %} 
+{% load staticfiles %} 
 {% block content %}
 <div class="content-outer">
 	<div id="page-content" class="row">
@@ -14,8 +15,7 @@
 					<h1>{{ post.title }}</h1>
 				</div>
 			{% if post.local_post_image %}
-				<div class="post-thumb">
-                  <img src="{{ post.local_post_image.url }}" alt="post-image" title="post-image">
+				<div class="post-thumb" style="background: url({{post.local_post_image.url}}) no-repeat center; height: 200px;">
                	</div>
             {% endif %}
 				<div class="post-content">
@@ -64,6 +64,16 @@
 				<ol class="commentlist">
 				{% for comment in post.comments.all %}
 					<li class="depth-1">
+						{% if comment.gender == 1 %}
+						<div class="avatar">
+	                        <img width="50" height="50" class="avatar" src="{% static 'images/user-03.png' %}" alt="">
+	                    </div>
+	                    {% endif %}
+	                    {% if comment.gender == 2 %}
+	                    <div class="avatar">
+	                        <img width="50" height="50" class="avatar" src="{% static 'images/user-02.png' %}" alt="">
+	                    </div>
+	                    {% endif %}
 						<div class="comment-info">
 						<cite>{{ comment.author }}</cite>
 						<div class="comment-meta">
@@ -79,29 +89,50 @@
 						No comments here yet
 					</li>
 				{% endfor %}
+					<li>
+						<h3>Leave a Comment</h3>
+						<form method="post">
+						<fieldset>
+							{% csrf_token %}
+							<div class="cf">
+								{{ form.author }}
+								<div class="error-block">
+						        {% if form.author.errors %}
+				                    {% for error in form.author.errors %}
+				                    <div class="validation-error-triangle"></div>
+						            <div class="validation-error"><p>{{error}}</p></div>
+				                    {% endfor %}
+				                {% endif %}
+				            	</div>
+				          	</div>
+				        	<div class="cf">
+				          		{{ form.gender }}
+				          		<div class="error-block">
+				          		{% if form.gender.errors %}
+				                    {% for error in form.gender.errors %}
+				                    <div class="validation-error-triangle"></div>
+						            <div class="validation-error"><p>{{error}}</p></div>
+				                    {% endfor %}
+				                {% endif %}
+				            	</div>
+				          	</div>
+				          	<div class="cf">
+				          		{{ form.text}}
+				          		<div class="error-block">
+						        {% if form.text.errors %}
+				                    {% for error in form.text.errors %}
+				                    <div class="validation-error-triangle"></div>
+						            <div class="validation-error"><p>{{error}}</p></div>
+				                    {% endfor %}
+				                {% endif %}
+				            	</div>
+				          	</div>
+						</fieldset>
+						<button type="submit" class="submit">Submit</button>
+						</form>
+					</li>
 				</ol>
             </div>
-            <div class="respond">
-				<h3>Leave a Comment</h3>
-				<form method="post">
-				{% csrf_token %}
-				   <fieldset>
-						<div class="cf">
-							<label for="cName">Name<span class="required">*</span></label>
-							{{ form.author }}
-						</div>
-						<div class="cf">
-							<label for="cEmail">Gender<span class="required">*</span></label>
-							{{ form.gender }}
-						</div>
-						<div class="cf">
-							<label for="cWebsite">Your comment</label>
-							{{ form.text}}
-						</div>
-						<button type="submit" class="submit">Submit</button>
-					</fieldset>
-				</form>
-            </div> 
 		</div>
 	</div>
 </div>

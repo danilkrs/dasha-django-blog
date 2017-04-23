@@ -21,6 +21,7 @@ def post_detail(request, pk):
 			comment.post = post
 			comment.save()
 			return redirect('post_detail', pk=post.pk)
-	commentForm = CommentForm()
-	context = {'post': post, 'form': commentForm}
+	else:
+		form = CommentForm()
+	context = {'post': post, 'form': form}
 	return render(request, 'blog/post_detail.html', context)
