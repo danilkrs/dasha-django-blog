@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %} 
+{% block content %}
+<div class="content-outer">
+      <div id="page-content" class="row">
+        <div id="primary" class="eight offset-2 columns">
+        {% if posts %}
+        	{% for post in posts %}
+	            <article class="post">
+	               <div class="entry-header cf">
+	                  <h1><a href="{% url 'post_detail' pk=post.pk %}" title="">{{ post.title }}</a></h1>
+	               </div>
+	               <div class="post-content">
+	                  <p>{{ post.text }}</p>
+	               </div>
+	               <div class="post-footer">
+	               		<p><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ post.published_date }}</p>
+	               		<div class="post-end">
+	               		</div>
+	               </div>
+	            </article>
+	        {% endfor %}
+        {% endif %}
+        </div>
+      </div>
+   </div>
+{% endblock content %}

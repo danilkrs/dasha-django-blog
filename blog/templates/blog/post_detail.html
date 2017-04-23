@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %} 
+{% block content %}
+<div class="content-outer">
+	<div id="page-content" class="row">
+		<div id="primary" class="eight offset-2 columns">
+			<p class="post-meta">
+			<span class="categories">
+			<a class="enable-meta-link" href="{% url 'post_list' %}">Blog</a> /
+			<a class="disable-meta-link">{{ post.title }}</a>
+			</span>
+			</p>
+			<article class="post">
+				<div class="entry-header cf">
+					<h1>{{ post.title }}</h1>
+				</div>
+				<div class="post-content">
+					<p class="lead">{{ post.text }}</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+{% endblock content %}
