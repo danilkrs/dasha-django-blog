@@ -2,7 +2,7 @@
 {% block content %}
 <div class="content-outer">
 	<div id="page-content" class="row">
-		<div id="primary" class="eight offset-2 columns">
+		<div id="primary" class="ten offset-1 columns">
 			<p class="post-meta">
 			<span class="categories">
 			<a class="enable-meta-link" href="{% url 'post_list' %}">Blog</a> /
@@ -59,6 +59,49 @@
 				</a>
 				</div>
 			</div>
+			<div id="comments">
+               	<h3>{{ post.comments.all|length}} Comments</h3>
+				<ol class="commentlist">
+				{% for comment in post.comments.all %}
+					<li class="depth-1">
+						<div class="comment-info">
+						<cite>{{ comment.author }}</cite>
+						<div class="comment-meta">
+						<time class="comment-time" datetime="2014-01-14T23:05">{{ comment.created_date }}</time>
+						</div>
+						</div>
+						<div class="comment-text">
+						<p>{{ comment.text }}</p>
+						</div>
+					</li>
+				{% empty %}
+					<li class="depth-1">
+						No comments here yet
+					</li>
+				{% endfor %}
+				</ol>
+            </div>
+            <div class="respond">
+				<h3>Leave a Comment</h3>
+				<form method="post">
+				{% csrf_token %}
+				   <fieldset>
+						<div class="cf">
+							<label for="cName">Name<span class="required">*</span></label>
+							{{ form.author }}
+						</div>
+						<div class="cf">
+							<label for="cEmail">Gender<span class="required">*</span></label>
+							{{ form.gender }}
+						</div>
+						<div class="cf">
+							<label for="cWebsite">Your comment</label>
+							{{ form.text}}
+						</div>
+						<button type="submit" class="submit">Submit</button>
+					</fieldset>
+				</form>
+            </div> 
 		</div>
 	</div>
 </div>

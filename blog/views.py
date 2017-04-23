@@ -3,7 +3,8 @@ from django.shortcuts import redirect
 from django.utils import timezone
 from .models import Post
 from django.shortcuts import render, get_object_or_404
-#from .forms import PostForm
+from .forms import CommentForm
+import pdb; 
 
 
 def post_list(request):
@@ -13,6 +14,13 @@ def post_list(request):
 
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
-	#post = Post.objects.get(pk=pk)
-	context = {'post': post}
+	if request.method == "POST":
+		form = CommentForm(request.POST)
+		if form.is_valid():
+			comment = form.save(commit=False)
+			comment.post = post
+			comment.save()
+			return redirect('post_detail', pk=post.pk)
+	commentForm = CommentForm()
+	context = {'post': post, 'form': commentForm}
 	return render(request, 'blog/post_detail.html', context)

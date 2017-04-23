@@ -2,26 +2,26 @@
 {% block content %}
 <div class="content-outer">
       <div id="page-content" class="row">
-        <div id="primary" class="eight offset-2 columns">
+        <div id="primary" class="ten offset-1 columns">
         {% if posts %}
         	{% for post in posts %}
 	            <article class="post">
 	               <div class="entry-header cf">
-	                  <h1><a href="{% url 'post_detail' pk=post.pk %}" title="">{{ post.title }}</a></h1>
+	                  	<h1><a href="{% url 'post_detail' pk=post.pk %}" title="">{{ post.title }}</a></h1>
+	                  	<div class="meta">
+						<p><small><i class="fa fa-clock-o"></i>&nbsp;{{ post.published_date }}&nbsp;/&nbsp;<i class="fa fa-comments"></i>{{ post.comments.all|length}} Comments</small></p>
+						</div>
 	                </div>
 	                {% if post.local_post_image %}
 						<div class="post-thumb" style="background: url({{post.local_post_image.url}}) no-repeat center; height: 200px;">
 		               	</div>
 		            {% endif %}
-					<div class="meta">
-					<p><small><i class="fa fa-clock-o"></i>&nbsp;{{ post.published_date }}&nbsp;/&nbsp;<i class="fa fa-comments"></i> 0 Comments</small></p>
-					</div>
 					<div class="post-content">
 					  	<p>{{ post.text }}</p>
 					</div>
 					<div class="post-footer">
-							<div class="post-end">
-							</div>
+						<div class="post-end">
+						</div>
 					</div>
 	            </article>
 	        {% endfor %}
