@@ -9,7 +9,7 @@
 	               <div class="entry-header cf">
 	                  	<h1><a href="{% url 'post_detail' pk=post.pk %}" title="">{{ post.title }}</a></h1>
 	                  	<div class="meta">
-						<p><small><i class="fa fa-clock-o"></i>&nbsp;{{ post.published_date }}&nbsp;/&nbsp;<i class="fa fa-comments"></i>{{ post.comments.all|length}} Comments</small></p>
+						<p><small><i class="fa fa-clock-o"></i>&nbsp;{{ post.published_date }}&nbsp;/&nbsp;<i class="fa fa-comments"></i>{% if post.comments.all|length == 1 %}{{  post.comments.all|length }} Comment {% else %}{{  post.comments.all|length }} Comments {% endif %}</small></p>
 						</div>
 	                </div>
 	                {% if post.local_post_image %}
@@ -17,7 +17,7 @@
 		               	</div>
 		            {% endif %}
 					<div class="post-content">
-					  	<p>{{ post.text }}</p>
+					  	<p>{{ post.short_text }}...<a class="enable-meta-link" href="{% url 'post_detail' pk=post.pk %}">Read More</a></p>
 					</div>
 					<div class="post-footer">
 						<div class="post-end">

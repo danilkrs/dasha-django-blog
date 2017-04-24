@@ -25,9 +25,8 @@
 /* a. Common Styles
 /* ------------------------------------------------------------------ */
 
-body { background: #fff url(../images/bg.jpg); }
+body { background: #efefef url(../images/bg.jpg); }
 img { border-radius: 3px; }
-.content-outer { background: #fff }
 
 /* page title */
 #page-title {
@@ -184,9 +183,11 @@ img { border-radius: 3px; }
 /* ------------------------------------------------------------------ */
 
 header {
-   text-align: center;
-   height: 96px;
-   width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #fff;
+    text-align: center;
+    height: 96px;
+    width: 100%;
 }
 
 /* header logo */
@@ -708,6 +709,7 @@ ul#nav ul li a {
 }
 
 /* post meta */
+
 #journal .entry .post-meta   {
    font: 15px/21px notosans-regular, sans-serif;
    margin-top: 12px;
@@ -783,9 +785,11 @@ ul#nav ul li a {
 /* ------------------------------------------------------------------ */
 
 .post {
-   text-align: center;
-   padding-top: 24px;
-   padding-bottom: 18px;
+    background: #fff;
+    margin: 5vh 0;
+    text-align: center;
+    padding: 30px 0 30px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .post .entry-header {
    position: relative;
@@ -900,35 +904,38 @@ ul#nav ul li a {
 /* Comments
 /* ------------------------------------------------------------------ */
 #comments {
-   padding-top: 12px;
-   padding-bottom: 12px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 30px;
+    margin-bottom: 5vh;
 }
 #comments h3 {
-   font: 20px/30px notosans-bold, sans-serif;
-   margin-bottom: 6px;
+    font: 20px/30px notosans-bold, sans-serif;
 }
 
 /* Comments List */
 ol.commentlist {
-   border-top: 1px dotted #E1E5E3;
-	margin: 29px 0 54px 0;
-	padding: 0;
-   margin-left: 16.66667%;
+    border-top: 1px dotted #E1E5E3;
+    margin: 29px 0 54px 0;
+    padding: 0;
+}
+ol.commentlist > li {
+    margin-bottom: 5vh;
+    background: #fff;
 }
 .commentlist > li {
-   position: relative;
-	list-style: none;
-	margin: 0;
-	padding: 18px 0 17px 0;
-	border-bottom: 1px dotted #D9DEDB;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 18px 0 17px 0;
+    border-bottom: 1px dotted #D9DEDB;
 }
 .commentlist  li .avatar {
-   position: absolute;
-   left: -50px;
-   display: block;
-
-   height: 50px;
-   width: 50px;
+    position: absolute;
+    left: -50px;
+    display: block;
+    height: 50px;
+    width: 50px;
 }
 .commentlist li .avatar img {
    margin-top: 6px;
@@ -1007,7 +1014,13 @@ ol.commentlist {
 	color: #11ABB0;
 	font-size: 13px;
 }
-
+#leave-comment {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 30px;
+    margin-bottom: 5vh;
+    width: 100%;
+}
 /* Pagination  */
 .pagination { margin: 0 auto 42px auto; }
 

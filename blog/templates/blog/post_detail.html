@@ -4,13 +4,13 @@
 <div class="content-outer">
 	<div id="page-content" class="row">
 		<div id="primary" class="ten offset-1 columns">
-			<p class="post-meta">
-			<span class="categories">
-			<a class="enable-meta-link" href="{% url 'post_list' %}">Blog</a> /
-			<a class="disable-meta-link">{{ post.title }}</a>
-			</span>
-			</p>
 			<article class="post">
+                <p class="post-meta">
+                    <span class="categories">
+                    <a class="enable-meta-link" href="{% url 'post_list' %}">Blog</a> /
+                    <a class="disable-meta-link">{{ post.title }}</a>
+                    </span>
+                </p>
 				<div class="entry-header cf">
 					<h1>{{ post.title }}</h1>
 				</div>
@@ -21,8 +21,7 @@
 				<div class="post-content">
 					<p class="lead">{{ post.text }}</p>
 				</div>
-			</article>
-			<div class="post-share">
+            <div class="post-share">
 				<div class="social-share-block">
 				<a href="http://www.facebook.com/sharer.php?u=http://clean-mag-soratemplates.blogspot.in/2015/03/papilion-minter-savior_4.html" target="_blank">
 				<span class="share-box">
@@ -59,12 +58,14 @@
 				</a>
 				</div>
 			</div>
+			</article>
 			<div id="comments">
-               	<h3>{{ post.comments.all|length}} Comments</h3>
+            <h3 class="text-center">{% if post.comments.all|length == 1 %}{{  post.comments.all|length }} Comment {% else %}{{  post.comments.all|length }} Comments {% endif %}</h3>
 				<ol class="commentlist">
 				{% for comment in post.comments.all %}
+                    {% if comment.author and comment.text %}
 					<li class="depth-1">
-						{% if comment.gender == 1 %}
+						<!--{% if comment.gender == 1 %}
 						<div class="avatar">
 	                        <img width="50" height="50" class="avatar" src="{% static 'images/user-03.png' %}" alt="">
 	                    </div>
@@ -73,9 +74,9 @@
 	                    <div class="avatar">
 	                        <img width="50" height="50" class="avatar" src="{% static 'images/user-02.png' %}" alt="">
 	                    </div>
-	                    {% endif %}
+	                    {% endif %}-->
 						<div class="comment-info">
-						<cite>{{ comment.author }}</cite>
+						<cite>{{ comment.author }}</cite>/<a class="enable-meta-link" href="">Reply</a>
 						<div class="comment-meta">
 						<time class="comment-time" datetime="2014-01-14T23:05">{{ comment.created_date }}</time>
 						</div>
@@ -84,54 +85,55 @@
 						<p>{{ comment.text }}</p>
 						</div>
 					</li>
+                    {% endif %}
 				{% empty %}
 					<li class="depth-1">
 						No comments here yet
 					</li>
 				{% endfor %}
-					<li>
-						<h3>Leave a Comment</h3>
-						<form method="post">
-						<fieldset>
-							{% csrf_token %}
-							<div class="cf">
-								{{ form.author }}
-								<div class="error-block">
-						        {% if form.author.errors %}
-				                    {% for error in form.author.errors %}
-				                    <div class="validation-error-triangle"></div>
-						            <div class="validation-error"><p>{{error}}</p></div>
-				                    {% endfor %}
-				                {% endif %}
-				            	</div>
-				          	</div>
-				        	<div class="cf">
-				          		{{ form.gender }}
-				          		<div class="error-block">
-				          		{% if form.gender.errors %}
-				                    {% for error in form.gender.errors %}
-				                    <div class="validation-error-triangle"></div>
-						            <div class="validation-error"><p>{{error}}</p></div>
-				                    {% endfor %}
-				                {% endif %}
-				            	</div>
-				          	</div>
-				          	<div class="cf">
-				          		{{ form.text}}
-				          		<div class="error-block">
-						        {% if form.text.errors %}
-				                    {% for error in form.text.errors %}
-				                    <div class="validation-error-triangle"></div>
-						            <div class="validation-error"><p>{{error}}</p></div>
-				                    {% endfor %}
-				                {% endif %}
-				            	</div>
-				          	</div>
-						</fieldset>
-						<button type="submit" class="submit">Submit</button>
-						</form>
-					</li>
 				</ol>
+            </div>
+            <div id="leave-comment">
+                <h3 class="text-center">Leave a Comment</h3>
+                <form method="post">
+                    <fieldset>
+                        {% csrf_token %}
+                        <div class="cf">
+                            {{ form.author }}
+                            <div class="error-block">
+                            {% if form.author.errors %}
+                                {% for error in form.author.errors %}
+                                <div class="validation-error-triangle"></div>
+                                <div class="validation-error"><p>{{error}}</p></div>
+                                {% endfor %}
+                            {% endif %}
+                            </div>
+                        </div>
+                        <div class="cf">
+                            {{ form.gender }}
+                            <div class="error-block">
+                            {% if form.gender.errors %}
+                                {% for error in form.gender.errors %}
+                                <div class="validation-error-triangle"></div>
+                                <div class="validation-error"><p>{{error}}</p></div>
+                                {% endfor %}
+                            {% endif %}
+                            </div>
+                        </div>
+                        <div class="cf">
+                            {{ form.text}}
+                            <div class="error-block">
+                            {% if form.text.errors %}
+                                {% for error in form.text.errors %}
+                                <div class="validation-error-triangle"></div>
+                                <div class="validation-error"><p>{{error}}</p></div>
+                                {% endfor %}
+                            {% endif %}
+                            </div>
+                        </div>
+                        <button type="submit" class="submit">Submit</button>
+                    </fieldset>
+                </form>
             </div>
 		</div>
 	</div>

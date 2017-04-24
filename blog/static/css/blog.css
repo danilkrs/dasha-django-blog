@@ -1,11 +1,11 @@
-p{
+p {
     margin: 5px !important;
 }
 .enable-meta-link{
 	color: #c9a96e !important;
 }
 .disable-meta-link{
-	color: #000;
+	color: #9FA5AD !important;
 }
 .post-end{
     height: 20px;

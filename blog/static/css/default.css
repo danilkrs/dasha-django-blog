@@ -459,17 +459,17 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-   font: 16px/30px notosans-bold, sans-serif;
-   background: #D3D9D9;
-   display: inline-block;
-	text-decoration: none;
-   letter-spacing: 0;
-   color: #000;
-	padding: 12px 24px;
-	margin-bottom: 18px;
-   border: none;
-   cursor: pointer;
-   height: auto;
+    font: 16px/30px notosans-bold, sans-serif;
+    background: #D3D9D9;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 0;
+    color: #000;
+    padding: 5px 10px;
+    margin-bottom: 18px;
+    border: none;
+    cursor: pointer;
+    height: auto;
 
    -webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -530,18 +530,19 @@ input[type="password"],
 input[type="email"],
 textarea,
 select {
-   display: block;
-   padding: 10px;
-   margin: 0;
-   border: 0;
-   outline: none;
-   vertical-align: middle;
-   min-width: 260px;
-	max-width: 100%;
-   font-size: 15px;
-   line-height: 24px;
-	color: #647373;
-	background: #D3D9D9;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border: 0;
+    outline: none;
+    vertical-align: middle;
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 24px;
+    color: #647373;
+    background: #D3D9D9;
 
    -moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -718,43 +719,41 @@ properly.
 /* mobile wide/smaller tablets
 --------------------------------------------------------------- */
 @media only screen and (max-width: 767px) {
+    .columns {padding: 0}
+    .row {
+        margin: 0 auto;
+        padding: 0;
+    }
+    .column, .columns {
+       width: auto !important;
+       float: none;
+       margin-left: 0;
+       margin-right: 0;
+    }
+    .row .row { width: auto; max-width: none; margin: 0 -30px; }
 
-   .row {
-	   width: 480px;
-	   margin: 0 auto;
-      padding: 0;
-	}
-   .column, .columns {
-	   width: auto !important;
-	   float: none;
-	   margin-left: 0;
-	   margin-right: 0;
-      padding: 0 30px;
-   }
-   .row .row { width: auto; max-width: none; margin: 0 -30px; }
+    [class*="column"] + [class*="column"]:last-child { float: none; }
+    [class*="bgrid"] [class*="column"] + [class*="column"]:last-child { float: none; }
 
-   [class*="column"] + [class*="column"]:last-child { float: none; }
-   [class*="bgrid"] [class*="column"] + [class*="column"]:last-child { float: none; }
-
-   /* Offsets */
-   .row .offset-1    { margin-left: 0%; }
-   .row .offset-2    { margin-left: 0%; }
-   .row .offset-3    { margin-left: 0%; }
-   .row .offset-4    { margin-left: 0%; }
-   .row .offset-5    { margin-left: 0%; }
-   .row .offset-6    { margin-left: 0%; }
-   .row .offset-7    { margin-left: 0%; }
-   .row .offset-8    { margin-left: 0%; }
-   .row .offset-9    { margin-left: 0%; }
-   .row .offset-10   { margin-left: 0%; }
-   .row .offset-11   { margin-left: 0%; }
+    /* Offsets */
+    .row .offset-1    { margin-left: 0%; }
+    .row .offset-2    { margin-left: 0%; }
+    .row .offset-3    { margin-left: 0%; }
+    .row .offset-4    { margin-left: 0%; }
+    .row .offset-5    { margin-left: 0%; }
+    .row .offset-6    { margin-left: 0%; }
+    .row .offset-7    { margin-left: 0%; }
+    .row .offset-8    { margin-left: 0%; }
+    .row .offset-9    { margin-left: 0%; }
+    .row .offset-10   { margin-left: 0%; }
+    .row .offset-11   { margin-left: 0%; }
 }
 
 /* mobile narrow
 --------------------------------------------------------------- */
 @media only screen and (max-width: 480px) {
-
-   .row { width: auto; }
+    .columns {padding: 0}
+    .row { width: auto; }
 
 }
 

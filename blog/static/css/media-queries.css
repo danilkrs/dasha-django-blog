@@ -10,7 +10,12 @@
 @media only screen and (max-width: 900px) {
 
    header .logo  { left: 36px; }
-
+   .ten{
+      width: 100vw;
+   }
+   .offset-1{
+      width: 0;
+   }
    /* page title
    -------------------------------------------------------------------- */
    #page-title h1 { font: 46px/60px raleway-bold, sans-serif; }
@@ -79,7 +84,6 @@
 ---------------------------------------------------------------------- */
 
 @media only screen and (max-width: 767px) {
-
    /* mobile navigation
    -------------------------------------------------------------------- */
    .social-share-block i{
@@ -94,11 +98,11 @@
       right: 0;
    }
    #nav-wrap > a {
-	   width: 48px;
-		height: 48px;
-		text-align: left;
-		background-color: #c9a96e;
-		position: relative;
+      width: 48px;
+      height: 48px;
+      text-align: left;
+      background-color: #c9a96e;
+      position: relative;
 
       border: none;
       float: right;
@@ -108,8 +112,8 @@
       color: transparent;
 
       position: relative;
-      top: 36px;
-      right: 36px;
+       top: 22px;
+      right: 22px;
    }
 
 	#nav-wrap > a:before,
@@ -145,11 +149,10 @@
    /* display menu panels */
 	#nav-wrap:target > ul#nav	{
       height: 250px;
-	   display: block;
+       display: block;
       padding: 30px 20px 48px 20px;
       background: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      margin: 0 20px;
       clear: both;
    }
 
@@ -234,8 +237,7 @@
    /* page content
    -------------------------------------------------------------------- */
    #page-content {
-      width: 480px;
-      padding-top: 30px;
+      width: 100%;
    }
 
    /* page
@@ -426,7 +428,6 @@
 @media only screen and (max-width: 480px) {
 
    header .logo { z-index: 99999; }
-
    /* page content
    -------------------------------------------------------------------- */
    #page-content {
@@ -436,7 +437,6 @@
    /* primary navigation */
    #nav-wrap { width: 100%; }
    #nav-wrap ul#nav {
-      top: 72px;
       right: 0px;
    }
 
