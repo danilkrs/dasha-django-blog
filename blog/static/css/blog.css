@@ -1,62 +1,69 @@
+*{
+    font-family: Ubuntu;
+}
 p {
-    margin: 5px !important;
+margin: 5px !important;
 }
 .enable-meta-link{
-	color: #c9a96e !important;
+color: #c9a96e !important;
 }
 .disable-meta-link{
-	color: #9FA5AD !important;
+color: #9FA5AD !important;
 }
 .post-end{
-    height: 20px;
-    background-image: url('http://2.bp.blogspot.com/-lWtuzmwkh58/Vt-2YzPAw-I/AAAAAAAAAVU/QFb2YllSgxs/s000/divider.png');    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: auto 23px;"
+height: 20px;
+background-image: url('http://2.bp.blogspot.com/-lWtuzmwkh58/Vt-2YzPAw-I/AAAAAAAAAVU/QFb2YllSgxs/s000/divider.png');    background-position: center top;
+background-repeat: no-repeat;
+background-size: auto 23px;"
 }
 .post-share{
-	text-align: center;
+text-align: center;
 }
 .social-share-block{
-	display: inline-block;
-	background: #efefef !important;
-	padding: 10px;
-	width: 40px;
+display: inline-block;
+background: #efefef !important;
+padding: 10px;
+width: 40px;
 }
 .social-share-block i{
-	font-size: 1.8vw;
+font-size: 1.8vw;
 }
 .social-share-block a{
-	color: #9FA5AD !important;
+color: #9FA5AD !important;
 }
 .social-share-block:hover a{
-	color: #c9a96e !important;
+color: #c9a96e !important;
 }
 .error-block {
-    z-index: 100;
-    position: relative;
-    top: -4px;
-    text-align: center;
-    margin: 0 auto !important;
+z-index: 100;
+position: relative;
+top: -4px;
+text-align: center;
+margin: 0 auto !important;
 }
 .validation-error-triangle {
-	height: 7px !important;	
-    width: 0; 
-    height: 0; 
-    margin: 0 auto !important;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #c9a96e;
+height: 7px !important;
+width: 0;
+height: 0;
+margin: 0 auto !important;
+border-left: 7px solid transparent;
+border-right: 7px solid transparent;
+border-bottom: 7px solid #c9a96e;
 }
 .validation-error{
-    margin: 0 auto !important;
-    background: #c9a96e;
+margin: 0 auto !important;
+background: #c9a96e;
 }
 .validation-error > p{
-    margin: 0 auto !important; 
-    padding: 2px;
-    color: #fff !important;
-    font-size: 14px;
+margin: 0 auto !important;
+padding: 2px;
+color: #fff !important;
+font-size: 14px;
 }
 .cf{
-	padding-bottom: 20px !important;
+padding-bottom: 20px !important;
+}
+
+.resize{
+    resize: none !important;
 }
