@@ -4,6 +4,7 @@ var ContactForm = {
     	self.authorField = $('input[name="author"]');
     	self.genderField = $('select[name="gender"]');
     	self.textField = $('textarea[name="text"]');
+    	self.submit = $('button[type="submit"]');
     	self.checkField(self.authorField, Boolean(self.authorField.val()));
     	self.checkField(self.genderField, Boolean(self.genderField.val()));
     	self.checkField(self.textField, Boolean(self.textField.val()));
@@ -12,6 +13,7 @@ var ContactForm = {
     	self.changeField(self.textField);
     },
 	checkField: function(field, fieldValue){
+    	var self = this;
 		if(fieldValue) {
             field.css('background', '#c9a96e');
             field.css('color', '#fff');
@@ -31,6 +33,15 @@ var ContactForm = {
             }
 			field.next().children().fadeIn('fast');
         }
+        console.log(self.readyFieldLength);
+		self.readyFieldLength = $('.ready-field').length;
+		if(self.readyFieldLength == 3) {
+			 self.submit.css('background', '#c9a96e');
+			 self.submit.css('color', '#fff');
+		} else {
+			self.submit.css('background', '#D3D9D9');
+            self.submit.css('color', '#647373');
+		}
 	},
 	changeField: function (field) {
 		var self = this;
